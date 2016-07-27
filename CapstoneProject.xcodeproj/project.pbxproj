@@ -10,19 +10,21 @@
 		2D021C2292E61A6DC47A90F3 /* Pods_CapstoneProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79855D8DA818870962E9F68C /* Pods_CapstoneProjectTests.framework */; };
 		B4F591ABD7EF64FC149F8C2C /* Pods_CapstoneProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB403D1E1CFA22738809B8E5 /* Pods_CapstoneProjectUITests.framework */; };
 		CB7405E7BF45C2ED7014BD1D /* Pods_CapstoneProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A785844EA97E45D512C7A98 /* Pods_CapstoneProject.framework */; };
-		E930395A1D3951D60011622A /* BusinessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93039591D3951D60011622A /* BusinessListViewController.swift */; };
-		E93ADC6A1D37FE1400AD178B /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ADC691D37FE1400AD178B /* ParseLoginHelper.swift */; };
 		E93ADC6C1D37FF7A00AD178B /* ErrorHandlingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ADC6B1D37FF7A00AD178B /* ErrorHandlingHelper.swift */; };
 		E93DAE031D433FAB00F783D4 /* BookingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE021D433FAB00F783D4 /* BookingScreenViewController.swift */; };
 		E93DAE051D43400800F783D4 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE041D43400800F783D4 /* Client.swift */; };
 		E93DAE0C1D43402F00F783D4 /* BusinessStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93DAE061D43402F00F783D4 /* BusinessStoryboard.storyboard */; };
 		E93DAE0D1D43402F00F783D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93DAE071D43402F00F783D4 /* Main.storyboard */; };
-		E93DAE0E1D43402F00F783D4 /* MessagingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE081D43402F00F783D4 /* MessagingScreenViewController.swift */; };
 		E93DAE0F1D43402F00F783D4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE091D43402F00F783D4 /* SignInViewController.swift */; };
 		E93DAE101D43402F00F783D4 /* SignUpForBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE0A1D43402F00F783D4 /* SignUpForBusinessViewController.swift */; };
 		E93DAE111D43402F00F783D4 /* SignUpForUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE0B1D43402F00F783D4 /* SignUpForUserViewController.swift */; };
 		E93DAE141D4340A000F783D4 /* InboxScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE131D4340A000F783D4 /* InboxScreenViewController.swift */; };
-		E95956061D36D76A00F00073 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95956051D36D76A00F00073 /* ParseHelper.swift */; };
+		E93DAE161D467B5000F783D4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE151D467B5000F783D4 /* Message.swift */; };
+		E93DAE181D4684A400F783D4 /* BusinessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE171D4684A400F783D4 /* BusinessListViewController.swift */; };
+		E93DAE1A1D47D5C000F783D4 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE191D47D5C000F783D4 /* Booking.swift */; };
+		E93DAE1E1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE1D1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift */; };
+		E93DAE201D48024600F783D4 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE1F1D48024600F783D4 /* CustomCell.swift */; };
+		E93DAE221D491CE500F783D4 /* SendBookingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE211D491CE500F783D4 /* SendBookingScreenViewController.swift */; };
 		E95956081D36F4B900F00073 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95956071D36F4B900F00073 /* Business.swift */; };
 		E9B645D21D36A7E000E21E28 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B645CC1D36A7E000E21E28 /* HomeScreenViewController.swift */; };
 		E9EF8AFF1D2F0A640029452A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF8AFE1D2F0A640029452A /* AppDelegate.swift */; };
@@ -58,19 +60,21 @@
 		79855D8DA818870962E9F68C /* Pods_CapstoneProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapstoneProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C32E5F676782E7F4464379 /* Pods-CapstoneProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProjectTests/Pods-CapstoneProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB403D1E1CFA22738809B8E5 /* Pods_CapstoneProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapstoneProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E93039591D3951D60011622A /* BusinessListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewController.swift; sourceTree = "<group>"; };
-		E93ADC691D37FE1400AD178B /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		E93ADC6B1D37FF7A00AD178B /* ErrorHandlingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlingHelper.swift; sourceTree = "<group>"; };
 		E93DAE021D433FAB00F783D4 /* BookingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingScreenViewController.swift; sourceTree = "<group>"; };
 		E93DAE041D43400800F783D4 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		E93DAE061D43402F00F783D4 /* BusinessStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BusinessStoryboard.storyboard; path = ../BusinessStoryboard.storyboard; sourceTree = "<group>"; };
-		E93DAE071D43402F00F783D4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		E93DAE081D43402F00F783D4 /* MessagingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingScreenViewController.swift; sourceTree = "<group>"; };
+		E93DAE061D43402F00F783D4 /* BusinessStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusinessStoryboard.storyboard; sourceTree = "<group>"; };
+		E93DAE071D43402F00F783D4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E93DAE091D43402F00F783D4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E93DAE0A1D43402F00F783D4 /* SignUpForBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpForBusinessViewController.swift; sourceTree = "<group>"; };
 		E93DAE0B1D43402F00F783D4 /* SignUpForUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpForUserViewController.swift; sourceTree = "<group>"; };
 		E93DAE131D4340A000F783D4 /* InboxScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxScreenViewController.swift; sourceTree = "<group>"; };
-		E95956051D36D76A00F00073 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		E93DAE151D467B5000F783D4 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E93DAE171D4684A400F783D4 /* BusinessListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewController.swift; sourceTree = "<group>"; };
+		E93DAE191D47D5C000F783D4 /* Booking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
+		E93DAE1D1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingScreenForBusinessViewController.swift; sourceTree = "<group>"; };
+		E93DAE1F1D48024600F783D4 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
+		E93DAE211D491CE500F783D4 /* SendBookingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendBookingScreenViewController.swift; sourceTree = "<group>"; };
 		E95956071D36F4B900F00073 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		E9B645CC1D36A7E000E21E28 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		E9EF8AFB1D2F0A640029452A /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,8 +143,8 @@
 		E93DAE121D43406E00F783D4 /* Controllers for Business Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				E93DAE081D43402F00F783D4 /* MessagingScreenViewController.swift */,
 				E93DAE131D4340A000F783D4 /* InboxScreenViewController.swift */,
+				E93DAE1D1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift */,
 			);
 			name = "Controllers for Business Storyboard";
 			path = ..;
@@ -153,8 +157,9 @@
 				E93DAE0A1D43402F00F783D4 /* SignUpForBusinessViewController.swift */,
 				E93DAE0B1D43402F00F783D4 /* SignUpForUserViewController.swift */,
 				E9B645CC1D36A7E000E21E28 /* HomeScreenViewController.swift */,
+				E93DAE171D4684A400F783D4 /* BusinessListViewController.swift */,
 				E93DAE021D433FAB00F783D4 /* BookingScreenViewController.swift */,
-				E93039591D3951D60011622A /* BusinessListViewController.swift */,
+				E93DAE211D491CE500F783D4 /* SendBookingScreenViewController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -165,6 +170,8 @@
 			children = (
 				E95956071D36F4B900F00073 /* Business.swift */,
 				E93DAE041D43400800F783D4 /* Client.swift */,
+				E93DAE151D467B5000F783D4 /* Message.swift */,
+				E93DAE191D47D5C000F783D4 /* Booking.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -172,11 +179,19 @@
 		E9B645C41D36A38100E21E28 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E95956051D36D76A00F00073 /* ParseHelper.swift */,
-				E93ADC691D37FE1400AD178B /* ParseLoginHelper.swift */,
 				E93ADC6B1D37FF7A00AD178B /* ErrorHandlingHelper.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E9C68F7E1D492BFD00551AB7 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				E93DAE071D43402F00F783D4 /* Main.storyboard */,
+				E93DAE061D43402F00F783D4 /* BusinessStoryboard.storyboard */,
+			);
+			name = StoryBoards;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E9EF8AF21D2F0A640029452A = {
@@ -209,8 +224,8 @@
 				E9EF8AFE1D2F0A640029452A /* AppDelegate.swift */,
 				E9EF8B051D2F0A640029452A /* Assets.xcassets */,
 				E9EF8B0A1D2F0A640029452A /* Info.plist */,
-				E93DAE071D43402F00F783D4 /* Main.storyboard */,
-				E93DAE061D43402F00F783D4 /* BusinessStoryboard.storyboard */,
+				E93DAE1F1D48024600F783D4 /* CustomCell.swift */,
+				E9C68F7E1D492BFD00551AB7 /* StoryBoards */,
 				E93DAE121D43406E00F783D4 /* Controllers for Business Storyboard */,
 				E9B645B21D34171D00E21E28 /* Controllers */,
 			);
@@ -499,17 +514,19 @@
 			files = (
 				E93DAE101D43402F00F783D4 /* SignUpForBusinessViewController.swift in Sources */,
 				E93DAE0F1D43402F00F783D4 /* SignInViewController.swift in Sources */,
-				E93ADC6A1D37FE1400AD178B /* ParseLoginHelper.swift in Sources */,
+				E93DAE221D491CE500F783D4 /* SendBookingScreenViewController.swift in Sources */,
+				E93DAE181D4684A400F783D4 /* BusinessListViewController.swift in Sources */,
 				E93DAE141D4340A000F783D4 /* InboxScreenViewController.swift in Sources */,
-				E93DAE0E1D43402F00F783D4 /* MessagingScreenViewController.swift in Sources */,
 				E9EF8AFF1D2F0A640029452A /* AppDelegate.swift in Sources */,
 				E93DAE111D43402F00F783D4 /* SignUpForUserViewController.swift in Sources */,
 				E93ADC6C1D37FF7A00AD178B /* ErrorHandlingHelper.swift in Sources */,
-				E930395A1D3951D60011622A /* BusinessListViewController.swift in Sources */,
+				E93DAE201D48024600F783D4 /* CustomCell.swift in Sources */,
 				E93DAE031D433FAB00F783D4 /* BookingScreenViewController.swift in Sources */,
+				E93DAE1A1D47D5C000F783D4 /* Booking.swift in Sources */,
 				E9B645D21D36A7E000E21E28 /* HomeScreenViewController.swift in Sources */,
+				E93DAE1E1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift in Sources */,
 				E95956081D36F4B900F00073 /* Business.swift in Sources */,
-				E95956061D36D76A00F00073 /* ParseHelper.swift in Sources */,
+				E93DAE161D467B5000F783D4 /* Message.swift in Sources */,
 				E93DAE051D43400800F783D4 /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

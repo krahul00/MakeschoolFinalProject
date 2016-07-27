@@ -28,7 +28,8 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destViewController = segue.destinationViewController as! BusinessListViewController
-        
+        print ("Segue is happ")
         destViewController.category = categories[tableView.indexPathForSelectedRow!.row]
+        
     }
 }

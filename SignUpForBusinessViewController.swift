@@ -23,25 +23,6 @@ class SignUpForBusinessViewController: UIViewController {
     
     func signUpHelperMethod()
     {
-        /** let business = PFUser()
-         business.name =
-         business.username = usernameTextField.text!
-         business.password = passwordTextField.text!
-         Business.signUpInBackgroundWithBlock { (succeeded, error) in
-         guard error == nil else
-         {
-         print(error)
-         return
-         }
-         dispatch_async(dispatch_get_main_queue())
-         {
-         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         let mainVC : UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeScreen") as UIViewController!
-         self.presentViewController(mainVC, animated: true, completion: nil)
-         }
-         
-         }
-         */
         let user = PFUser()
         user.username = usernameTextField.text!
         user.password = passwordTextField.text!
@@ -57,11 +38,11 @@ class SignUpForBusinessViewController: UIViewController {
             }
             dispatch_async(dispatch_get_main_queue())
             {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainVC : UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeScreen") as UIViewController!
+                let storyboard = UIStoryboard(name: "BusinessStoryboard", bundle: nil)
+                let mainVC : UIViewController = storyboard.instantiateViewControllerWithIdentifier("BusinessInboxScreen") as UIViewController!
                 self.presentViewController(mainVC, animated: true, completion: nil)
             }
         }
-
-}
+        
+    }
 }

@@ -14,6 +14,8 @@ import Bolts
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var storyboard : UIStoryboard?
+    var storyboard1: UIStoryboard?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -26,8 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.initializeWithConfiguration(configuration)
         Parse.setLogLevel(PFLogLevel.Debug)
-        PFUser.logOut()
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+       /**
+        self.storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.storyboard1 = UIStoryboard(name: "BusinessStoryboard", bundle: nil)
+
+        let currentUser = PFUser.currentUser()
+        if (currentUser) != nil
+        {
+            if (currentUser == true)
+            {
+                self.window?.rootViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HomeScreen")
+            }
+            else
+            {
+                self.window?.rootViewController = self.storyboard1?.instantiateViewControllerWithIdentifier("HomeScreenOfBusiness")
+            }
+        }
+ */
+        
         
         return true
     }

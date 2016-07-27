@@ -6,54 +6,50 @@
 //  Copyright © 2016 Rahul. All rights reserved.
 //
 
-/**import UIKit
+import UIKit
 import ParseFacebookUtilsV4
 import ParseUI
 import Parse
 
 class BookingScreenViewController: UIViewController {
-
+    
+    var receiverId: String
+     = ""
+    
+    @IBOutlet weak var textField: UITextField!
+    
     @IBAction func sendButtonTapped(sender: AnyObject) {
-        
         let newMessageObject = PFObject(className: "Message")
-        newMessageObject["Text"] = self.message.text!
-        newMessageObject.saveInBackgroundWithBlock { (success, error) in
-            if (success = true)
+        newMessageObject["content"] = self.textField.text!
+        newMessageObject["fromID"] = PFUser.currentUser()?.username!
+        newMessageObject["receiverID"] = receiverId
+        
+        newMessageObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) in
+            if (success == true)
             {
+                print("it was a success")
                 
             }
-                else
+            else
             {
-                print (error)
+                print(error)
             }
         }
-        
-        
-        
     }
-    
-    @IBOutlet weak var message: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let destViewController = segue.destinationViewController as! SendBookingScreenViewController
+        destViewController.toID = self.receiverId
     }
-    */
-
-}*/
+}

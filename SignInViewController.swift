@@ -38,16 +38,16 @@ class SignInViewController: UIViewController {
                 let storyboard1 = UIStoryboard(name: "BusinessStoryboard", bundle: nil)
                 if (user!["isBusiness"] as! Bool) == true
                 {
-                    let mainVC : UIViewController = storyboard1.instantiateViewControllerWithIdentifier("BusinessInboxScreen") as UIViewController!
-                    self.presentViewController(mainVC, animated: true, completion: nil)
-
-
+                    let main : UIViewController = storyboard1.instantiateViewControllerWithIdentifier("HomeScreenOfBusiness") as UIViewController!
+                    self.presentViewController(main, animated: true, completion: nil)
+                    
+                    
                 } else {
                     let mainVC : UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeScreen") as UIViewController!
                     self.presentViewController(mainVC, animated: true, completion: nil)
                 }
                 
             }
-}
-}
+        }
+    }
 }
