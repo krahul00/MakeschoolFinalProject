@@ -12,12 +12,11 @@
 		CB7405E7BF45C2ED7014BD1D /* Pods_CapstoneProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A785844EA97E45D512C7A98 /* Pods_CapstoneProject.framework */; };
 		E93ADC6C1D37FF7A00AD178B /* ErrorHandlingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ADC6B1D37FF7A00AD178B /* ErrorHandlingHelper.swift */; };
 		E93DAE031D433FAB00F783D4 /* BookingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE021D433FAB00F783D4 /* BookingScreenViewController.swift */; };
-		E93DAE051D43400800F783D4 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE041D43400800F783D4 /* Client.swift */; };
 		E93DAE0C1D43402F00F783D4 /* BusinessStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93DAE061D43402F00F783D4 /* BusinessStoryboard.storyboard */; };
 		E93DAE0D1D43402F00F783D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93DAE071D43402F00F783D4 /* Main.storyboard */; };
 		E93DAE0F1D43402F00F783D4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE091D43402F00F783D4 /* SignInViewController.swift */; };
-		E93DAE101D43402F00F783D4 /* SignUpForBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE0A1D43402F00F783D4 /* SignUpForBusinessViewController.swift */; };
-		E93DAE111D43402F00F783D4 /* SignUpForUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE0B1D43402F00F783D4 /* SignUpForUserViewController.swift */; };
+		E93DAE101D43402F00F783D4 /* SecondSignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE0A1D43402F00F783D4 /* SecondSignUpScreen.swift */; };
+		E93DAE111D43402F00F783D4 /* FirstSignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE0B1D43402F00F783D4 /* FirstSignUpScreen.swift */; };
 		E93DAE141D4340A000F783D4 /* InboxScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE131D4340A000F783D4 /* InboxScreenViewController.swift */; };
 		E93DAE161D467B5000F783D4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE151D467B5000F783D4 /* Message.swift */; };
 		E93DAE181D4684A400F783D4 /* BusinessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE171D4684A400F783D4 /* BusinessListViewController.swift */; };
@@ -25,12 +24,18 @@
 		E93DAE1E1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE1D1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift */; };
 		E93DAE201D48024600F783D4 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE1F1D48024600F783D4 /* CustomCell.swift */; };
 		E93DAE221D491CE500F783D4 /* SendBookingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DAE211D491CE500F783D4 /* SendBookingScreenViewController.swift */; };
-		E95956081D36F4B900F00073 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95956071D36F4B900F00073 /* Business.swift */; };
+		E97D4E191D4DBAB200830B42 /* ServiceOffered.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D4E181D4DBAB200830B42 /* ServiceOffered.swift */; };
+		E97D4E1B1D4FBB0E00830B42 /* CustomCellForHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D4E1A1D4FBB0E00830B42 /* CustomCellForHomeScreen.swift */; };
+		E97D4E1D1D500F6300830B42 /* CustomCellForBusinessList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D4E1C1D500F6300830B42 /* CustomCellForBusinessList.swift */; };
+		E97D4E1F1D5102B800830B42 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D4E1E1D5102B800830B42 /* User.swift */; };
 		E9B645D21D36A7E000E21E28 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B645CC1D36A7E000E21E28 /* HomeScreenViewController.swift */; };
 		E9EF8AFF1D2F0A640029452A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF8AFE1D2F0A640029452A /* AppDelegate.swift */; };
 		E9EF8B061D2F0A640029452A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9EF8B051D2F0A640029452A /* Assets.xcassets */; };
 		E9EF8B141D2F0A640029452A /* CapstoneProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF8B131D2F0A640029452A /* CapstoneProjectTests.swift */; };
 		E9EF8B1F1D2F0A640029452A /* CapstoneProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF8B1E1D2F0A640029452A /* CapstoneProjectUITests.swift */; };
+		E9FBAF671D4BCEA4001E5C71 /* ThirdSignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FBAF661D4BCEA4001E5C71 /* ThirdSignUpScreen.swift */; };
+		E9FBAF691D4BECA8001E5C71 /* FourthSignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FBAF681D4BECA8001E5C71 /* FourthSignUpScreen.swift */; };
+		E9FBAF6B1D4BF257001E5C71 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FBAF6A1D4BF257001E5C71 /* LaunchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,12 +67,11 @@
 		DB403D1E1CFA22738809B8E5 /* Pods_CapstoneProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapstoneProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93ADC6B1D37FF7A00AD178B /* ErrorHandlingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlingHelper.swift; sourceTree = "<group>"; };
 		E93DAE021D433FAB00F783D4 /* BookingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingScreenViewController.swift; sourceTree = "<group>"; };
-		E93DAE041D43400800F783D4 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		E93DAE061D43402F00F783D4 /* BusinessStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusinessStoryboard.storyboard; sourceTree = "<group>"; };
 		E93DAE071D43402F00F783D4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E93DAE091D43402F00F783D4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		E93DAE0A1D43402F00F783D4 /* SignUpForBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpForBusinessViewController.swift; sourceTree = "<group>"; };
-		E93DAE0B1D43402F00F783D4 /* SignUpForUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpForUserViewController.swift; sourceTree = "<group>"; };
+		E93DAE0A1D43402F00F783D4 /* SecondSignUpScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondSignUpScreen.swift; sourceTree = "<group>"; };
+		E93DAE0B1D43402F00F783D4 /* FirstSignUpScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstSignUpScreen.swift; sourceTree = "<group>"; };
 		E93DAE131D4340A000F783D4 /* InboxScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxScreenViewController.swift; sourceTree = "<group>"; };
 		E93DAE151D467B5000F783D4 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E93DAE171D4684A400F783D4 /* BusinessListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +79,10 @@
 		E93DAE1D1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingScreenForBusinessViewController.swift; sourceTree = "<group>"; };
 		E93DAE1F1D48024600F783D4 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
 		E93DAE211D491CE500F783D4 /* SendBookingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendBookingScreenViewController.swift; sourceTree = "<group>"; };
-		E95956071D36F4B900F00073 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		E97D4E181D4DBAB200830B42 /* ServiceOffered.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceOffered.swift; sourceTree = "<group>"; };
+		E97D4E1A1D4FBB0E00830B42 /* CustomCellForHomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellForHomeScreen.swift; sourceTree = "<group>"; };
+		E97D4E1C1D500F6300830B42 /* CustomCellForBusinessList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellForBusinessList.swift; sourceTree = "<group>"; };
+		E97D4E1E1D5102B800830B42 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E9B645CC1D36A7E000E21E28 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		E9EF8AFB1D2F0A640029452A /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EF8AFE1D2F0A640029452A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +94,9 @@
 		E9EF8B1A1D2F0A640029452A /* CapstoneProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapstoneProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EF8B1E1D2F0A640029452A /* CapstoneProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapstoneProjectUITests.swift; sourceTree = "<group>"; };
 		E9EF8B201D2F0A640029452A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9FBAF661D4BCEA4001E5C71 /* ThirdSignUpScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdSignUpScreen.swift; sourceTree = "<group>"; };
+		E9FBAF681D4BECA8001E5C71 /* FourthSignUpScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthSignUpScreen.swift; sourceTree = "<group>"; };
+		E9FBAF6A1D4BF257001E5C71 /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,13 +163,9 @@
 		E9B645B21D34171D00E21E28 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E93DAE091D43402F00F783D4 /* SignInViewController.swift */,
-				E93DAE0A1D43402F00F783D4 /* SignUpForBusinessViewController.swift */,
-				E93DAE0B1D43402F00F783D4 /* SignUpForUserViewController.swift */,
-				E9B645CC1D36A7E000E21E28 /* HomeScreenViewController.swift */,
-				E93DAE171D4684A400F783D4 /* BusinessListViewController.swift */,
-				E93DAE021D433FAB00F783D4 /* BookingScreenViewController.swift */,
-				E93DAE211D491CE500F783D4 /* SendBookingScreenViewController.swift */,
+				E9FBAF6C1D4BF33C001E5C71 /* Controllers for Login */,
+				E9FBAF6D1D4BF35B001E5C71 /* Other Controllers */,
+				E9FBAF651D4BBED4001E5C71 /* Controllers for Signup */,
 			);
 			name = Controllers;
 			path = ..;
@@ -168,10 +174,10 @@
 		E9B645BF1D359E9E00E21E28 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E95956071D36F4B900F00073 /* Business.swift */,
-				E93DAE041D43400800F783D4 /* Client.swift */,
+				E97D4E1E1D5102B800830B42 /* User.swift */,
 				E93DAE151D467B5000F783D4 /* Message.swift */,
 				E93DAE191D47D5C000F783D4 /* Booking.swift */,
+				E97D4E181D4DBAB200830B42 /* ServiceOffered.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -225,6 +231,8 @@
 				E9EF8B051D2F0A640029452A /* Assets.xcassets */,
 				E9EF8B0A1D2F0A640029452A /* Info.plist */,
 				E93DAE1F1D48024600F783D4 /* CustomCell.swift */,
+				E97D4E1A1D4FBB0E00830B42 /* CustomCellForHomeScreen.swift */,
+				E97D4E1C1D500F6300830B42 /* CustomCellForBusinessList.swift */,
 				E9C68F7E1D492BFD00551AB7 /* StoryBoards */,
 				E93DAE121D43406E00F783D4 /* Controllers for Business Storyboard */,
 				E9B645B21D34171D00E21E28 /* Controllers */,
@@ -248,6 +256,37 @@
 				E9EF8B201D2F0A640029452A /* Info.plist */,
 			);
 			path = CapstoneProjectUITests;
+			sourceTree = "<group>";
+		};
+		E9FBAF651D4BBED4001E5C71 /* Controllers for Signup */ = {
+			isa = PBXGroup;
+			children = (
+				E9FBAF6A1D4BF257001E5C71 /* LaunchScreen.swift */,
+				E93DAE0B1D43402F00F783D4 /* FirstSignUpScreen.swift */,
+				E93DAE0A1D43402F00F783D4 /* SecondSignUpScreen.swift */,
+				E9FBAF661D4BCEA4001E5C71 /* ThirdSignUpScreen.swift */,
+				E9FBAF681D4BECA8001E5C71 /* FourthSignUpScreen.swift */,
+			);
+			name = "Controllers for Signup";
+			sourceTree = "<group>";
+		};
+		E9FBAF6C1D4BF33C001E5C71 /* Controllers for Login */ = {
+			isa = PBXGroup;
+			children = (
+				E93DAE091D43402F00F783D4 /* SignInViewController.swift */,
+			);
+			name = "Controllers for Login";
+			sourceTree = "<group>";
+		};
+		E9FBAF6D1D4BF35B001E5C71 /* Other Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9B645CC1D36A7E000E21E28 /* HomeScreenViewController.swift */,
+				E93DAE171D4684A400F783D4 /* BusinessListViewController.swift */,
+				E93DAE021D433FAB00F783D4 /* BookingScreenViewController.swift */,
+				E93DAE211D491CE500F783D4 /* SendBookingScreenViewController.swift */,
+			);
+			name = "Other Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +365,7 @@
 				TargetAttributes = {
 					E9EF8AFA1D2F0A640029452A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZXY8JP4N4Q;
 					};
 					E9EF8B0E1D2F0A640029452A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -512,22 +552,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93DAE101D43402F00F783D4 /* SignUpForBusinessViewController.swift in Sources */,
+				E93DAE101D43402F00F783D4 /* SecondSignUpScreen.swift in Sources */,
 				E93DAE0F1D43402F00F783D4 /* SignInViewController.swift in Sources */,
 				E93DAE221D491CE500F783D4 /* SendBookingScreenViewController.swift in Sources */,
+				E9FBAF691D4BECA8001E5C71 /* FourthSignUpScreen.swift in Sources */,
 				E93DAE181D4684A400F783D4 /* BusinessListViewController.swift in Sources */,
 				E93DAE141D4340A000F783D4 /* InboxScreenViewController.swift in Sources */,
+				E97D4E1D1D500F6300830B42 /* CustomCellForBusinessList.swift in Sources */,
 				E9EF8AFF1D2F0A640029452A /* AppDelegate.swift in Sources */,
-				E93DAE111D43402F00F783D4 /* SignUpForUserViewController.swift in Sources */,
+				E97D4E1B1D4FBB0E00830B42 /* CustomCellForHomeScreen.swift in Sources */,
+				E93DAE111D43402F00F783D4 /* FirstSignUpScreen.swift in Sources */,
+				E9FBAF671D4BCEA4001E5C71 /* ThirdSignUpScreen.swift in Sources */,
 				E93ADC6C1D37FF7A00AD178B /* ErrorHandlingHelper.swift in Sources */,
 				E93DAE201D48024600F783D4 /* CustomCell.swift in Sources */,
+				E9FBAF6B1D4BF257001E5C71 /* LaunchScreen.swift in Sources */,
 				E93DAE031D433FAB00F783D4 /* BookingScreenViewController.swift in Sources */,
 				E93DAE1A1D47D5C000F783D4 /* Booking.swift in Sources */,
 				E9B645D21D36A7E000E21E28 /* HomeScreenViewController.swift in Sources */,
+				E97D4E191D4DBAB200830B42 /* ServiceOffered.swift in Sources */,
 				E93DAE1E1D47E20100F783D4 /* BookingScreenForBusinessViewController.swift in Sources */,
-				E95956081D36F4B900F00073 /* Business.swift in Sources */,
 				E93DAE161D467B5000F783D4 /* Message.swift in Sources */,
-				E93DAE051D43400800F783D4 /* Client.swift in Sources */,
+				E97D4E1F1D5102B800830B42 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,10 +698,13 @@
 			baseConfigurationReference = 4CC991EC51D7301F4679FBB5 /* Pods-CapstoneProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CapstoneProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rahul.CapstoneProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -665,10 +713,13 @@
 			baseConfigurationReference = 70CA8879D0A698A710B8306E /* Pods-CapstoneProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CapstoneProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rahul.CapstoneProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
