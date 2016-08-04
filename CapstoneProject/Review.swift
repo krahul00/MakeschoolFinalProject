@@ -1,24 +1,24 @@
 //
-//  Message.swift
+//  Review.swift
 //  CapstoneProject
 //
-//  Created by Rahul Mehta on 7/25/16.
+//  Created by Rahul Mehta on 8/3/16.
 //  Copyright © 2016 Rahul. All rights reserved.
 //
 
 import Foundation
 import Parse
 
-class Messages: PFObject,PFSubclassing {
+class Review: PFObject,PFSubclassing {
     
-    @NSManaged var content: String
-    @NSManaged var receiverID: String
     @NSManaged var fromID: String
-    @NSManaged var phoneNumber: String
+    @NSManaged var toID: String
+    @NSManaged var reviewNumber: Int
+    @NSManaged var content: String
     
     static func parseClassName() -> String
     {
-        return "Message"
+        return "Review"
     }
     override class func initialize(){
         var onceToken : dispatch_once_t = 0

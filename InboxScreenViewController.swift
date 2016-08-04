@@ -43,8 +43,11 @@ class InboxScreenViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath)
-        cell.textLabel!.text = messages[indexPath.row].content
+        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! CustomCellForMessages
+        cell.content.text! = messages[indexPath.row].content
+        cell.phoneNumber.text! = messages[indexPath.row].phoneNumber
+        cell.name.text! = messages[indexPath.row].fromID
+        
         return cell
     }
     
@@ -53,7 +56,7 @@ class InboxScreenViewController: UIViewController, UITableViewDelegate, UITableV
     func findMessages(completionBlock: PFQueryArrayResultBlock)
     {
         let query = PFQuery(className:"Message")
-        query.whereKey("receiverID", equalTo: (PFUser.currentUser()?.username!)!)
+        query.whereKey("receiverID", equalTo: (PFUser.currentUser()!["businessName"]!))
         query.findObjectsInBackgroundWithBlock(completionBlock)
         
     }

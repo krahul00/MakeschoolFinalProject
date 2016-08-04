@@ -1,35 +1,44 @@
 //
-//  SignUpForUserViewController.swift
+//  SendBookingScreenViewController.swift
+//  CapstoneProject
 //
-//
-//  Created by Rahul Mehta on 7/21/16.
-//
+//  Created by Rahul Mehta on 7/27/16.
+//  Copyright © 2016 Rahul. All rights reserved.
 //
 
 import UIKit
 import Parse
-import Bolts
 
-class FirstSignUpScreen: UIViewController, UIScrollViewDelegate {
-    
+class FirstBookingScreenViewController: UIViewController {
 
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var isBusiness: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    
+    var toID: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(FirstSignUpScreen.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
+                                                         selector: #selector(FirstBookingScreenViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(FirstSignUpScreen.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-    }
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+                                                         selector: #selector(FirstBookingScreenViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destViewController = segue.destinationViewController as! SecondBookingScreen
+        destViewController.name = nameTextField.text!
+        destViewController.address = addressTextField.text!
+        destViewController.toId = toID
+        
+        
+    }
     
     func keyboardWillShowOrHide(notification: NSNotification) {
         
@@ -52,18 +61,5 @@ class FirstSignUpScreen: UIViewController, UIScrollViewDelegate {
             scrollView.contentOffset.x = 0
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController = segue.destinationViewController as! SecondSignUpScreen
-        destViewController.firstName = firstNameTextField.text!
-        destViewController.lastName = lastNameTextField.text!
-        if (isBusiness.selectedSegmentIndex == 0) {
-            destViewController.isBusiness = true
-        }
-        else {
-            destViewController.isBusiness = false
-        }
-    }
-
 
 }

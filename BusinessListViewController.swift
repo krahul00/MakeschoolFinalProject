@@ -1,11 +1,11 @@
 import UIKit
 import ParseUI
+import Parse
 import CoreLocation
 
 class BusinessListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-
     var businesses: [User] = []
     var category: String!
     let locationManager = CLLocationManager()
@@ -38,7 +38,7 @@ class BusinessListViewController: UIViewController, UITableViewDataSource, UITab
         }
         else
         {
-            cell.reviewAverage.text! = String(businesses[indexPath.row].averageReview)
+            cell.reviewAverage.text! = (String(businesses[indexPath.row].averageReview) + "Stars")
         }
         return cell
     }
@@ -46,9 +46,9 @@ class BusinessListViewController: UIViewController, UITableViewDataSource, UITab
     func requestForSpecificCategory(type: String, location: PFGeoPoint, completionBlock: PFQueryArrayResultBlock)
     {
         let query = PFUser.query()!
-        query.whereKey("isBusiness", equalTo:true)
-        query.whereKey("location", nearGeoPoint: location, withinMiles: 1000000)
-        query.whereKey("type", equalTo: type)
+        //query.whereKey("isBusiness", equalTo: true)
+        //query.whereKey("location", nearGeoPoint: location, withinMiles: 100000000)
+        //query.whereKey("type", equalTo: type)
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
@@ -56,15 +56,12 @@ class BusinessListViewController: UIViewController, UITableViewDataSource, UITab
         print(error)
     }
  
- 
-    
+
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { 
         guard let location = locations.first else { return }
         currUserGeoPoint = PFGeoPoint(location: location)
-        
-    
         requestForSpecificCategory(category!, location: currUserGeoPoint) { (result: [PFObject]?, error: NSError?) in
-            if let result = result as? User
+            if let result = result as? [User]
             {
                 self.businesses = result
                 self.tableView.reloadData()
@@ -75,8 +72,10 @@ class BusinessListViewController: UIViewController, UITableViewDataSource, UITab
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController = segue.destinationViewController as! BookingScreenViewController
-        destViewController.receiverId = businesses[tableView.indexPathForSelectedRow!.row].name
+        let destViewController = segue.destinationViewController as! InformationPageViewController
+            destViewController.user[0] = businesses[tableView.indexPathForSelectedRow!.row]
+        destViewController.objectId1 = businesses[tableView.indexPathForSelectedRow!.row].objectId!
+        
     }
 
 }

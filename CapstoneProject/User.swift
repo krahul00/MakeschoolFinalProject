@@ -20,10 +20,12 @@ class User: PFObject, PFSubclassing {
     @NSManaged var email: String
     @NSManaged var firstName: String
     @NSManaged var lastName: String
-    @NSManaged var averageReview: Int
+    @NSManaged var averageReview: NSNumber
     @NSManaged var businessName: String
     @NSManaged var businessPhoneNumber: String
-    
+    @NSManaged var price: String
+    @NSManaged var content: String
+    @NSManaged var numberOfRating: Int
     
     static func parseClassName() -> String
     {

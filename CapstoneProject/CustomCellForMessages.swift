@@ -1,24 +1,18 @@
 //
-//  CustomCell.swift
+//  CustomCellForMessages.swift
 //  CapstoneProject
 //
-//  Created by Rahul Mehta on 7/26/16.
+//  Created by Rahul Mehta on 8/3/16.
 //  Copyright © 2016 Rahul. All rights reserved.
 //
 
 import UIKit
-import ParseUI
 
-class CustomCell: UITableViewCell {
-    
-    @IBOutlet weak var nameTextField: UITextField!
-   
-    @IBOutlet weak var addressTextField: UITextField!
-    
-    @IBOutlet weak var date: UITextField!
-    
-    @IBOutlet weak var time: UITextField!
-    
+class CustomCellForMessages: UITableViewCell {
+
+    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var name: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
