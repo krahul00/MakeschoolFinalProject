@@ -15,6 +15,10 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
     var lastName: String = ""
     var isBusiness: Bool = false
     
+    @IBAction func backButtonPressed(segue: UIStoryboardSegue) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func performSegueButton(sender: AnyObject) {
         if (self.isBusiness == false)
         {
@@ -24,6 +28,7 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
             performSegueWithIdentifier("SecondToThird", sender: sender)
         }
     }
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -39,15 +44,37 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-   
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        if identifier == "SecondToThird" {
+            
+            if ((emailTextField.text!.isEmpty) || (passwordTextField.text!.isEmpty)){
+                
+                let alert = UIAlertView()
+                alert.title = "No Text"
+                alert.message = "Please Enter Text In The Box"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            }
+                
+            else {
+                return true
+            }
+        }
+        return true
+    }
+
     
     func signUpHelperMethod()
     {
         let user = PFUser()
+        user["firstName"] = firstName
+        user["lastName"] = lastName
         user["name"] = firstName + "" + lastName
         user.password = passwordTextField.text!
         user["isBusiness"] = false
-        user["email"] = emailTextField.text!
+        user["username"] = emailTextField.text!
         
         user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
             guard error == nil else
@@ -72,13 +99,13 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
         let destViewController = segue.destinationViewController as! ThirdSignUpScreen
         destViewController.firstName = firstName
         destViewController.lastName = lastName
-        destViewController.email = emailTextField.text!
+        destViewController.username = emailTextField.text!
         destViewController.isBusiness = isBusiness
         destViewController.password = passwordTextField.text!
         }
-        else
+        if (segue.identifier == "SecondToHome")
         {
-            signUpHelperMethod()
+            self.signUpHelperMethod()
         }
         
     }

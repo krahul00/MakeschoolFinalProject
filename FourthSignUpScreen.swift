@@ -9,49 +9,63 @@
 import UIKit
 import Parse
 import ParseUI
+import CoreLocation
 
-class FourthSignUpScreen: UIViewController, UIPickerViewDelegate, UIScrollViewDelegate, UIPickerViewDataSource {
+class FourthSignUpScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate, CLLocationManagerDelegate {
+    
     var firstName: String = ""
     var lastName: String = ""
-    var email: String = ""
+    var username: String = ""
     var businessName = ""
     var businessPhoneNumber = ""
     var isBusiness: Bool = false
     var password = ""
-   
+    var currentUserLocation: PFGeoPoint!
+    let locationManager = CLLocationManager()
+    
+    @IBAction func fourthButton(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet weak var priceOne: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var typeTextField: UITextField!
-    @IBOutlet weak var picker = UIPickerView()
     @IBOutlet weak var descriptionOne: UITextField!
-    @IBOutlet weak var priceTwo: UITextField!
-    @IBOutlet weak var descriptionTwo: UITextField!
-    @IBOutlet weak var priceThree: UITextField!
-    @IBOutlet weak var descriptionThree: UITextField!
-    
-    var categories: [String] = ["Cleaning", "Plumbing", "Electrical", "Events", "Catering", "Landscaping"]
+    @IBOutlet var picker: UIPickerView!
+    var categories = ["Cleaning", "Plumbing", "Electrical", "Events", "Catering", "Landscaping"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            NSNotificationCenter.defaultCenter().addObserver(self,
+        NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(FourthSignUpScreen.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(FourthSignUpScreen.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        picker?.removeFromSuperview()
-        picker!.hidden = true
-        typeTextField.text! = ""
-        typeTextField.inputView = picker
-        picker?.dataSource = self
-        picker?.delegate = self
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        self.picker = UIPickerView(frame: CGRectMake(0,0 , screenWidth,screenHeight * 0.33333))
+        self.picker.dataSource = self
+        self.picker.delegate = self
+        self.typeTextField.text! = ""
+        self.typeTextField.delegate = self
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            locationManager.startUpdatingLocation()
+        }
 
-        
     }
+    
+    func inputPickerDidFinished(){
+        self.typeTextField.resignFirstResponder()
+    }
+    
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func keyboardWillShowOrHide(notification: NSNotification) {
-        
         if let scrollView = scrollView, userInfo = notification.userInfo, endValue = userInfo[UIKeyboardFrameEndUserInfoKey], durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey], curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] {
             scrollView.keyboardDismissMode = .Interactive
             let endRect = view.convertRect(endValue.CGRectValue, fromView: view.window)
@@ -71,6 +85,12 @@ class FourthSignUpScreen: UIViewController, UIPickerViewDelegate, UIScrollViewDe
             scrollView.contentOffset.x = 0
         }
     }
+    
+   func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+   {
+        let userLocation:CLLocation = locations[0] 
+        currentUserLocation = PFGeoPoint(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+    }
 
     @IBAction func buttonPressed(sender: AnyObject) {
          signUpHelperMethod()
@@ -83,12 +103,16 @@ class FourthSignUpScreen: UIViewController, UIPickerViewDelegate, UIScrollViewDe
         user["name"] = firstName + "" + lastName
         user.password = password
         user["isBusiness"] = true
-        user["email"] = email
+        user.username = username
         user["businesssName"] = businessName
         user["businessPhoneNumber"] = businessPhoneNumber
         user["type"] = typeTextField.text!
-        user["isBusiness"] = false
-        user.signUpInBackgroundWithBlock {
+        user["content1"] = descriptionOne.text!
+        user["price1"] = priceOne.text!
+        user["location"] = currentUserLocation
+        user["averageReview"] = ("0")
+        user["numberOfRating"] = ("0")
+            user.signUpInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             guard error == nil else
             {
@@ -97,62 +121,12 @@ class FourthSignUpScreen: UIViewController, UIPickerViewDelegate, UIScrollViewDe
             }
             dispatch_async(dispatch_get_main_queue())
             {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainVC : UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeScreen") as UIViewController!
-                self.presentViewController(mainVC, animated: true, completion: nil)
-            }
-        }
-        if (priceOne.text != nil && descriptionOne != nil)
-        {
-            let serviceOffered = PFObject(className: "ServiceOffered")
-            serviceOffered["price"] = priceOne
-            serviceOffered["description"] = descriptionOne
-            
-            serviceOffered.saveInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
-                guard error == nil else
-                {
-                    print (error)
-                    return
-                }
-
-            }
-        }
-        if (priceTwo.text != nil && descriptionTwo != nil)
-        {
-            let serviceOffered = PFObject(className: "ServiceOffered")
-            serviceOffered["price"] = priceTwo
-            serviceOffered["description"] = descriptionTwo
-            
-            serviceOffered.saveInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
-                guard error == nil else
-                {
-                    print (error)
-                    return
-                }
-                
-            }
-        }
-        if (priceTwo.text != nil && descriptionTwo != nil)
-        {
-            let serviceOffered = PFObject(className: "ServiceOffered")
-            serviceOffered["price"] = priceTwo
-            serviceOffered["description"] = descriptionTwo
-            
-            serviceOffered.saveInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
-                guard error == nil else
-                {
-                    print (error)
-                    return
-                }
-                
-            }
-        }
-        dispatch_async(dispatch_get_main_queue())
-        {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "BusinessStoryboard", bundle: nil)
             let mainVC : UIViewController = storyboard.instantiateViewControllerWithIdentifier("HomeScreenOfBusiness") as UIViewController!
             self.presentViewController(mainVC, animated: true, completion: nil)
+            }
         }
+        
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
@@ -161,20 +135,28 @@ class FourthSignUpScreen: UIViewController, UIPickerViewDelegate, UIScrollViewDe
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         return categories.count
+    }    
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: categories[row])
     }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row]
-    }
-    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         typeTextField.text = categories[row]
-        picker!.hidden = true;
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        picker!.hidden = false
-        return false
+        return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.pickUpDate()
+    }
+    
+    func pickUpDate(){
+        let toolBar = UIToolbar(frame: CGRectMake(0,0,320,44))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(FourthSignUpScreen.inputPickerDidFinished))
+        toolBar.setItems([doneButton], animated: false)
+        self.typeTextField.inputView = picker
+        self.typeTextField.inputAccessoryView = toolBar
     }
     
     override func didReceiveMemoryWarning() {

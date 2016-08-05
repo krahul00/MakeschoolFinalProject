@@ -12,6 +12,10 @@ import ParseUI
 
 class WriteReviewViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBAction func review(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBOutlet weak var scrollView: UIScrollView!
     var objectId: String = ""
     var businessName: String = ""

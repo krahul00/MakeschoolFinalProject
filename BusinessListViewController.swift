@@ -8,21 +8,47 @@ class BusinessListViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     var businesses: [User] = []
     var category: String!
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     var currUserGeoPoint: PFGeoPoint!
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-    
-        if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.startUpdatingLocation()
+        print(currUserGeoPoint)
+        
+        /*locationManager.delegate = self
+         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+         
+         if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
+         locationManager.requestWhenInUseAuthorization()
+         } else {
+         locationManager.startUpdatingLocation()
+         }
+         }
+         
+         
+         */ 
+        
+        requestForSpecificCategory(category!, location: currUserGeoPoint) { (result: [PFObject]?, error: NSError?) in
+            print(self.currUserGeoPoint)
+            if result?.count != 0
+            {
+                self.businesses.removeAll()
+                for user in result! {
+                    let user = user as! User
+                    self.businesses.append(user)
+                }
+              self.tableView.reloadData()
+                //self.locationManager.stopUpdatingLocation()
+            } else {
+                //print
+            }
+            
         }
     }
- 
+    
+    
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return businesses.count
     }
@@ -34,11 +60,11 @@ class BusinessListViewController: UIViewController, UITableViewDataSource, UITab
         if (businesses[indexPath.row].averageReview == 0)
         {
             cell.reviewAverage.text! = "No Reviews"
-
+            
         }
         else
         {
-            cell.reviewAverage.text! = (String(businesses[indexPath.row].averageReview) + "Stars")
+            cell.reviewAverage.text! = (String(businesses[indexPath.row].averageReview) + " Stars")
         }
         return cell
     }
@@ -46,37 +72,56 @@ class BusinessListViewController: UIViewController, UITableViewDataSource, UITab
     func requestForSpecificCategory(type: String, location: PFGeoPoint, completionBlock: PFQueryArrayResultBlock)
     {
         let query = PFUser.query()!
-        //query.whereKey("isBusiness", equalTo: true)
-        //query.whereKey("location", nearGeoPoint: location, withinMiles: 100000000)
-        //query.whereKey("type", equalTo: type)
+        query.whereKey("isBusiness", equalTo: true)
+        query.whereKey("location", nearGeoPoint: location, withinMiles: 100000000)
+        query.whereKey("type", equalTo: type)
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print(error)
+    //func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+     //   print(error)
+    //}
+    
+    
+    @IBAction func stscreenprssed(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
- 
-
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { 
-        guard let location = locations.first else { return }
-        currUserGeoPoint = PFGeoPoint(location: location)
-        requestForSpecificCategory(category!, location: currUserGeoPoint) { (result: [PFObject]?, error: NSError?) in
-            if let result = result as? [User]
-            {
-                self.businesses = result
-                self.tableView.reloadData()
-            } else {
-                //print alert
-            }
-        }
-    }
-
+    
+    /*func locationManager(manager: CLLocationManager!,   didUpdateLocations locations: [AnyObject]!) {
+     let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+     currUserGeoPoint = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+     }
+     
+     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+     guard let location = locations.first else { return }
+     currUserGeoPoint = PFGeoPoint(location: location)
+     requestForSpecificCategory(category!, location: currUserGeoPoint) { (result: [PFObject]?, error: NSError?) in
+     if result?.count != 0
+     {
+     self.businesses.removeAll()
+     for user in result! {
+     let user = user as! User
+     self.businesses.append(user)
+     }
+     self.tableView.reloadData()
+     self.locationManager.stopUpdatingLocation()
+     } else {
+     //print
+     }
+     
+     }
+     }
+     */
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController = segue.destinationViewController as! InformationPageViewController
-            destViewController.user[0] = businesses[tableView.indexPathForSelectedRow!.row]
-        destViewController.objectId1 = businesses[tableView.indexPathForSelectedRow!.row].objectId!
+        if (segue.identifier == "ListToInformation")
+        {
+            let destViewController = segue.destinationViewController as! InformationPageViewController
+            destViewController.user = businesses[tableView.indexPathForSelectedRow!.row]
+            destViewController.objectId1 = businesses[tableView.indexPathForSelectedRow!.row].objectId!
+        }
         
     }
-
+    
 }
  

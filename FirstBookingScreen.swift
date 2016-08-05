@@ -11,6 +11,9 @@ import Parse
 
 class FirstBookingScreenViewController: UIViewController {
 
+    @IBAction func book(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!

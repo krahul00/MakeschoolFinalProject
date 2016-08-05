@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.clientKey = "dipti761"
         }
         
+        PFUser.logOut()
         Parse.initializeWithConfiguration(configuration)
         Parse.setLogLevel(PFLogLevel.Debug)
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)

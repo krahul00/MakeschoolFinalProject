@@ -15,13 +15,19 @@ class SignInViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBAction func buttonPresssed(segue: UIStoryboardSegue) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         
-         super.viewDidLoad()
-         NSNotificationCenter.defaultCenter().addObserver(self,
-         selector: #selector(SignInViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
-         NSNotificationCenter.defaultCenter().addObserver(self,
-         selector: #selector(SignInViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(SignInViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(SignInViewController.keyboardWillShowOrHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -64,7 +70,7 @@ class SignInViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-//MARK: KEYBOARD SCROLL CONNECTION
+    //MARK: KEYBOARD SCROLL CONNECTION
     
     func keyboardWillShowOrHide(notification: NSNotification) {
         

@@ -9,15 +9,15 @@
 import Foundation
 import Parse
 
-class User: PFObject, PFSubclassing {
+class User: PFUser{
     
     @NSManaged var name: String
     @NSManaged var isBusiness: Bool
     @NSManaged var location: PFGeoPoint
-    @NSManaged var username: String
+//    @NSManaged var username: String
     @NSManaged var type: String
-    @NSManaged var password: String
-    @NSManaged var email: String
+//    @NSManaged var password: String
+//    @NSManaged var email: String
     @NSManaged var firstName: String
     @NSManaged var lastName: String
     @NSManaged var averageReview: NSNumber
@@ -26,16 +26,4 @@ class User: PFObject, PFSubclassing {
     @NSManaged var price: String
     @NSManaged var content: String
     @NSManaged var numberOfRating: Int
-    
-    static func parseClassName() -> String
-    {
-        return "Message"
-    }
-    override class func initialize(){
-        var onceToken : dispatch_once_t = 0
-        dispatch_once(&onceToken) {
-            self.registerSubclass()
-            
-        }
-    }
 }

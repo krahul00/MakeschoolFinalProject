@@ -18,6 +18,9 @@ class SecondBookingScreen: UIViewController {
     var address: String = ""
     var toId = ""
     
+    @IBAction func secondBooking(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self,

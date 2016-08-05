@@ -20,11 +20,4 @@ class Messages: PFObject,PFSubclassing {
     {
         return "Message"
     }
-    override class func initialize(){
-        var onceToken : dispatch_once_t = 0
-        dispatch_once(&onceToken) {
-            self.registerSubclass()
-            
-        }
-    }
 }

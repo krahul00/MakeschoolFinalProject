@@ -12,11 +12,17 @@ import Bolts
 
 class FirstSignUpScreen: UIViewController, UIScrollViewDelegate {
     
-
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var isBusiness: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
+
+    
+   
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +34,8 @@ class FirstSignUpScreen: UIViewController, UIScrollViewDelegate {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
-
+    
+    
     
     func keyboardWillShowOrHide(notification: NSNotification) {
         
@@ -53,17 +59,41 @@ class FirstSignUpScreen: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController = segue.destinationViewController as! SecondSignUpScreen
-        destViewController.firstName = firstNameTextField.text!
-        destViewController.lastName = lastNameTextField.text!
-        if (isBusiness.selectedSegmentIndex == 0) {
-            destViewController.isBusiness = true
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        if identifier == "FirstToSecond" {
+            
+            if ((firstNameTextField.text!.isEmpty) || (lastNameTextField.text!.isEmpty)){
+                
+                let alert = UIAlertView()
+                alert.title = "No Text"
+                alert.message = "Please Enter Text In The Box"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            }
+                
+            else {
+                return true
+            }
         }
-        else {
-            destViewController.isBusiness = false
+         return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "FirstToSecond")
+        {
+            let destViewController = segue.destinationViewController as! SecondSignUpScreen
+            destViewController.firstName = firstNameTextField.text!
+            destViewController.lastName = lastNameTextField.text!
+            if (isBusiness.selectedSegmentIndex == 0) {
+                destViewController.isBusiness = true
+            }
+            else {
+                destViewController.isBusiness = false
+            }
         }
     }
-
-
+    
+    
 }

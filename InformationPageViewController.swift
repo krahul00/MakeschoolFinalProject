@@ -11,7 +11,7 @@ import Parse
 
 class InformationPageViewController: UIViewController, UITableViewDataSource {
     
-    var user: [User] = []
+    var user: User!
     
     var reviews: [Review] = []
     
@@ -21,13 +21,16 @@ class InformationPageViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBAction func information(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        businessName.text! = user[0].businessName
-        priceLabel.text! = user[0].price
-        descriptionLabel.text! = user[0].description
-        requestForReviews(user[0].businessName) { (result, error: NSError?) in
+        businessName.text! = user.businessName
+        priceLabel.text! = user.price
+        descriptionLabel.text! = user.description
+        requestForReviews(user.businessName) { (result, error: NSError?) in
             if let result = result as? [Review]
             {
                 self.reviews = result
@@ -70,17 +73,17 @@ class InformationPageViewController: UIViewController, UITableViewDataSource {
         {
             let destViewController = segue.destinationViewController as! WriteReviewViewController
             destViewController.objectId = objectId1
-            destViewController.businessName = user[0].businessName
+            destViewController.businessName = user.businessName
         }
         if (segue.identifier == "InformationToMessage")
         {
             let destViewController = segue.destinationViewController as! MessagingScreenViewController
-            destViewController.receiverId = user[0].businessName
+            destViewController.receiverId = user.businessName
         }
         if (segue.identifier == "InformationToBooking")
         {
             let destViewController = segue.destinationViewController as! FirstBookingScreenViewController
-            destViewController.toID = user[0].businessName
+            destViewController.toID = user.businessName
         }
     }
 }

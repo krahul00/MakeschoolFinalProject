@@ -12,9 +12,13 @@ class ThirdSignUpScreen: UIViewController, UIScrollViewDelegate {
     
     var firstName: String = ""
     var lastName: String = ""
-    var email: String = ""
+    var username: String = ""
     var isBusiness: Bool = false
     var password = ""
+    
+    @IBAction func thirdBackButton(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBOutlet weak var businessNameTextField: UITextField!
 
@@ -63,15 +67,40 @@ class ThirdSignUpScreen: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        if identifier == "FirstToSecond" {
+            
+            if ((businessNameTextField.text!.isEmpty) || (businessPhoneNumberTextField.text!.isEmpty)){
+                
+                let alert = UIAlertView()
+                alert.title = "No Text"
+                alert.message = "Please Enter Text In The Box"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            }
+                
+            else {
+                return true
+            }
+        }
+        return true
+    }
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "ThirdToFourth")
+        {
         let destViewController = segue.destinationViewController as! FourthSignUpScreen
         destViewController.firstName = firstName
         destViewController.lastName = lastName
-        destViewController.email = email
+        destViewController.username = username
         destViewController.isBusiness = isBusiness
         destViewController.businessName = businessNameTextField.text!
         destViewController.businessPhoneNumber = businessPhoneNumberTextField.text!
         destViewController.password = password
+        }
         
     }
 

@@ -13,6 +13,10 @@ import Parse
 
 class MessagingScreenViewController: UIViewController, UIScrollViewDelegate{
     
+    @IBAction func message(segue: UIStoryboardSegue) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     var receiverId: String
