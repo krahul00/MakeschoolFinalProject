@@ -22,7 +22,8 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
     @IBAction func performSegueButton(sender: AnyObject) {
         if (self.isBusiness == false)
         {
-            performSegueWithIdentifier("SecondToHome", sender: sender)
+            //performSegueWithIdentifier("SecondToHome", sender: sender)
+            signUpHelperMethod()
         }
         else {
             performSegueWithIdentifier("SecondToThird", sender: sender)
@@ -45,7 +46,7 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        if ((identifier == "SecondToThird") || (identifier == "SecondToHome"))
+        if ((identifier == "SecondToThird"))
         {
             
             if ((emailTextField.text!.isEmpty) || (passwordTextField.text!.isEmpty))
@@ -73,7 +74,7 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
         let user = PFUser()
         user["firstName"] = firstName
         user["lastName"] = lastName
-        user["name"] = firstName + "" + lastName
+        user["name"] = firstName + " " + lastName
         user.password = passwordTextField.text!
         user["isBusiness"] = false
         user["username"] = emailTextField.text!
@@ -105,10 +106,10 @@ class SecondSignUpScreen: UIViewController, UIScrollViewDelegate{
         destViewController.isBusiness = isBusiness
         destViewController.password = passwordTextField.text!
         }
-        if (segue.identifier == "SecondToHome")
-        {
-            self.signUpHelperMethod()
-        }
+//        if (segue.identifier == "SecondToHome")
+//        {
+//            self.signUpHelperMethod()
+//        }
         
     }
     //MARK: KEYBOARD SCROLL CONNECTION

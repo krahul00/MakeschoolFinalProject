@@ -106,9 +106,17 @@ class WriteReviewViewController: UIViewController, UIScrollViewDelegate, UIPicke
                 let realNumberRating: Int = Int(self.numberRating.text!)!
                 result["averageReview"] = ((previousAverageReview * previousNumberOfRating) + realNumberRating)/(previousNumberOfRating + 1)
                 result["numberOfRating"] = previousNumberOfRating + 1
-            }
-        })
+                result.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                    } else {
+                        print (error)
+                    }
+        }
     
+    
+    }
+        })
     }
     
     func keyboardWillShowOrHide(notification: NSNotification) {

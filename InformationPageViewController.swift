@@ -45,7 +45,7 @@ class InformationPageViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("ReviewCell", forIndexPath: indexPath) as! CustomCellForInformationPage
-        cell.userName.text! = reviews[indexPath.row].fromID
+        cell.userName.text! = reviews[indexPath.row].fromID + ":"
         cell.content.text! = reviews[indexPath.row].content
         return cell
     }
@@ -58,8 +58,7 @@ class InformationPageViewController: UIViewController, UITableViewDataSource {
     func requestForReviews(string: String, completionBlock: PFQueryArrayResultBlock)
     {
         let query = PFQuery(className: "Review")
-        query.whereKey("fromID", equalTo: string)
-        query.limit = 5
+        query.whereKey("toID", equalTo: string)
         query.findObjectsInBackgroundWithBlock(completionBlock)
         
     }

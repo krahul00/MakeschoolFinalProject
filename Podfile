@@ -9,7 +9,12 @@ target 'CapstoneProject' do
   pod "ConvenienceKit"
   pod 'Parse'
   pod 'ParseFacebookUtilsV4'
-  pod 'ParseUI'
+  pod 'ParseUI’
+
+
+
+
+
   target 'CapstoneProjectTests' do
     inherit! :search_paths
     # Pods for testing

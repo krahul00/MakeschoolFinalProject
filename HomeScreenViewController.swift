@@ -11,10 +11,9 @@ import Parse
 import CoreLocation
 import Foundation
 
-
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate
 {
-    
+
     @IBOutlet weak var tableView: UITableView!
     let locationManager = CLLocationManager()
     
@@ -39,12 +38,6 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    
-
-    
-    
-
-    
     @IBAction func signOut(sender: AnyObject) {
         let alert = UIAlertController(title: "Confirm log out", message: "Are you sure you want to log out", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Log out", style: .Destructive, handler: { (action: UIAlertAction) in
@@ -52,15 +45,15 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             PFUser.logOutInBackgroundWithBlock{ (error: NSError?) -> Void in
                 alert.dismissViewControllerAnimated(true, completion: nil)
                 self.loginSetup()
-        }
-            }))
+            }
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: {(action: UIAlertAction) in
             alert.dismissViewControllerAnimated(true, completion: nil)
         }))
         presentViewController(alert, animated: true, completion: nil)
     }
     
-            
+    
     func loginSetup()
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -71,51 +64,48 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-            
- 
+    
+    
     var location: PFGeoPoint!
     
     var categories = ["Cleaning", "Plumbing", "Electrical", "Events", "Catering", "Landscaping"]
     var imageList = [UIImage(named: "Cleaning Icon.png"), UIImage(named: "Plumbing Icon.png"), UIImage(named: "Electricity Icon.png"), UIImage(named: "Events Icon.png"), UIImage(named: "Catering Icon.png"), UIImage(named: "Landscaping Icon.png"),]
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if (PFUser.currentUser() != nil)
         {
-        let string1 = PFUser.currentUser()!["firstName"]
-        introductoryMessage.text! = "Hi, \(string1)."
-        locationManager.delegate = self
-        if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.startUpdatingLocation()
-        }
+            let string1 = PFUser.currentUser()!["firstName"]
+            introductoryMessage.text! = "Hi, \(string1)."
+            locationManager.delegate = self
+            if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
+                locationManager.requestWhenInUseAuthorization()
+            } else {
+                locationManager.startUpdatingLocation()
+            }
         }
     }
-
     
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.distanceFilter = kCLDistanceFilterNone
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startMonitoringSignificantLocationChanges()
-//        locationManager.startUpdatingLocation()
-
     
-
-        
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let indexPath = tableView.indexPathForSelectedRow{
             tableView.deselectRowAtIndexPath(indexPath,animated: false)
+        }
+        if (PFUser.currentUser() != nil)
+        {
+            let string1 = PFUser.currentUser()!["firstName"]
+            introductoryMessage.text! = "Hi, \(string1)."
+            
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier", forIndexPath: indexPath) as! CustomCellForHomeScreen
         cell.categoryName.text = categories[indexPath.row]
@@ -123,22 +113,22 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) 
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         let userLocation:CLLocation = locations[0]
         location = PFGeoPoint(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         print(location)
         
     }
-
     
-        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destViewController = segue.destinationViewController as! BusinessListViewController
         destViewController.category = categories[tableView.indexPathForSelectedRow!.row]
-             print(location)
+        print(location)
         destViewController.currUserGeoPoint = location
-            locationManager.stopUpdatingLocation()
-            
+        locationManager.stopUpdatingLocation()
+        
         
     }
 }

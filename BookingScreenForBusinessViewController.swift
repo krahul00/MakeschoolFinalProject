@@ -34,6 +34,34 @@ class BookingScreenForBusinessViewController: UIViewController, UITableViewDataS
         }
     }
     
+    @IBAction func signOut(sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "Confirm log out", message: "Are you sure you want to log out", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Log out", style: .Destructive, handler: { (action: UIAlertAction) in
+            alert.dismissViewControllerAnimated(true, completion: nil)
+            PFUser.logOutInBackgroundWithBlock{ (error: NSError?) -> Void in
+                alert.dismissViewControllerAnimated(true, completion: nil)
+                self.loginSetup()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: {(action: UIAlertAction) in
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        presentViewController(alert, animated: true, completion: nil)
+
+         
+    }
+    
+    func loginSetup()
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeScreen = storyboard.instantiateViewControllerWithIdentifier("LaunchScreen")
+        self.presentViewController(homeScreen, animated: true, completion: nil)
+        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        appDelegate?.window?.rootViewController = homeScreen
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,7 +87,8 @@ class BookingScreenForBusinessViewController: UIViewController, UITableViewDataS
     func findBookings(completionBlock: PFQueryArrayResultBlock)
     {
         let query = PFQuery(className:"Booking")
-        query.whereKey("toID", equalTo: (PFUser.currentUser()?.username!)!)
+        query.whereKey("toID", equalTo: (PFUser.currentUser()!["businessName"])!)
+        
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
 }

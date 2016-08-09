@@ -9,11 +9,10 @@
 import Foundation
 import Parse
 
-class Review: PFObject,PFSubclassing {
+class Review: PFObject, PFSubclassing {
     
     @NSManaged var fromID: String
     @NSManaged var toID: String
-    @NSManaged var reviewNumber: Int
     @NSManaged var content: String
     
     static func parseClassName() -> String

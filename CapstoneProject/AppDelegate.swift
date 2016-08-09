@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 import Bolts
 
 @UIApplicationMain
@@ -30,8 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initializeWithConfiguration(configuration)
         Parse.setLogLevel(PFLogLevel.Debug)
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+
     
-        let currentUser = PFUser.currentUser()
+       let currentUser = PFUser.currentUser()
         if (currentUser) != nil
         {
             if ((currentUser!["isBusiness"] as! Bool) == false)
@@ -48,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.storyboard?.instantiateViewControllerWithIdentifier("LaunchScreen")
         }
         return true
+
     }
     
 

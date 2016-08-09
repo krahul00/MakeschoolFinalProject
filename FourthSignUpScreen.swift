@@ -112,7 +112,7 @@ class FourthSignUpScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let user = PFUser()
         user["firstName"] = firstName
         user["lastName"] = lastName
-        user["name"] = firstName + "" + lastName
+        user["name"] = firstName + " " + lastName
         user.password = password
         user["isBusiness"] = true
         user.username = username
